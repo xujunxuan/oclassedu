@@ -1,0 +1,33 @@
+<div id="breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="#!/">首页</a></li>
+            <li><a href="#!/">分类</a></li>
+            <li class="active"><%=category.category.prarent.name%></li>
+        </ol>
+    </div>
+</div>
+<div id="category">
+    <div class="container">
+        <h1><%=category.category.prarent.name%></h1>
+        <ul class="thumb-list">
+            <% _.each(category.list, function(res){%>
+            <li>
+                <a href="#!/resource/<%=res.id%>/" class="thumb"><img src="<%=res.pic%>" alt="<%=res.title%>"/></a>
+                <a href="#!/resource/<%=res.id%>/" class="intro"><%=res.title%></a>
+            </li>
+            <% }) %>
+        </ul>
+        <% if(pages > 1){ %>
+        <div class="text-center">
+            <ul class="pagination">
+                <li <%= current_page==1?'class="disabled"':'' %>><a href="#!/category/<%=cid%>/1/">&lt;</a></li>
+                <% for(var i=1; i<=pages; i++){ %>
+                <li <%= current_page==i?'class="active"':'' %>><a href="#!/category/<%=cid%>/<%=i%>/"><%=i%></a></li>
+                <% } %>
+                <li <%= current_page==pages?'class="disabled"':'' %>><a href="#!/category/<%=cid%>/<%=pages%>/">&gt;</a></li>
+            </ul>
+        </div>
+        <% } %>
+    </div>
+</div>

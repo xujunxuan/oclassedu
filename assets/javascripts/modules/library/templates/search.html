@@ -1,0 +1,80 @@
+<div id="search">
+    <form class="search-form" id="search-form">
+        <input type="text" name="keyword" class="form-control" placeholder="搜索视频、音频、PPT、文档等教育资源" value="<%-keyword%>"/>
+        <button type="submit" class="btn btn-search"><i class="icon icon-search"></i></button>
+        <div class="help-block">找到如下 “<%-keyword%>” 相关内容</div>
+    </form>
+</div>
+<div id="result">
+    <div class="container">
+        <div class="sidebar">
+            <ul class="type-menu">
+                <li <%= current_filter['type'] === '' ? 'class="active"':'' %>><a href="#" data-filter="type" data-name="">全部</a></li>
+                <li <%= current_filter['type'] === 0 ? 'class="active"':'' %>><a href="#" data-filter="type" data-name="0">课程</a></li>
+                <li <%= current_filter['type'] === 1 ? 'class="active"':'' %>><a href="#" data-filter="type" data-name="1">视频</a></li>
+            </ul>
+            <h2>课程筛选</h2>
+            <% if(categorys){ %>
+            <dl class="filter">
+                <dt>按类型</dt>
+                <dd>
+                    <ul class="filter-list" id="category-filters">
+                        <li <%= !current_filter['category'] ? 'class="active"':'' %>><a href="#" data-filter="category" data-name="">全部</a></li>
+                        <% _.each(categorys, function(item){%>
+
+                        <li <%= current_filter['category'] === item.name ? 'class="active"':'' %>><a href="#" data-filter="category" data-name="<%-item.name%>"><%-item.name%></a></li>
+                        <% }) %>
+                    </ul>
+                </dd>
+            </dl>
+            <% } %>
+            <% if(colleges){ %>
+            <dl class="filter">
+                <dt>按学校</dt>
+                <dd>
+                    <ul class="filter-list" id="college-filters">
+                        <li <%= !current_filter['college'] ? 'class="active"':'' %>><a href="#" data-filter="college" data-name="">全部</a></li>
+                        <% _.each(colleges, function(item){%>
+                        <li <%= current_filter['college'] === item ? 'class="active"':'' %>><a href="#" data-filter="college" data-name="<%-item%>"><%-item%></a></li>
+                        <% }) %>
+                    </ul>
+                </dd>
+            </dl>
+            <% } %>
+        </div>
+        <div class="content">
+            <h1>“<%=keyword%>”的搜索结果</h1>
+            <% if(result.length){ %>
+            <ul class="result-list">
+                <% _.each(result, function(res){%>
+                <li>
+                    <div class="thumb"><a href="#!/resource/<%=res.id%>/"><img src="<%=res.pic%>" alt="<%=res.title%>"/></a></div>
+                    <div class="detail">
+                        <h3><a href="#!/resource/<%=res.id%>/"><%-res.title%></a></h3>
+                        <div class="metas">
+                            <div class="meta"><span class="tit">学校：</span><%-res.college%></div>
+                            <div class="meta"><span class="tit">讲师：</span><%-res.author%></div>
+                            <div class="meta"><span class="tit">类型：</span><%-res.category%></div>
+                        </div>
+                        <div class="intro"><%-res.desc%></div>
+                    </div>
+                </li>
+                <% }) %>
+            </ul>
+            <% }else{ %>
+            <p>没有找到“<%=keyword%>”相关内容</p>
+            <% } %>
+            <% if(pages > 1){ %>
+            <div class="text-center">
+                <ul class="pagination">
+                    <li <%= current_page==1?'class="disabled"':'' %>><a href="#!/search/<%-keyword%>/1/">&lt;</a></li>
+                    <% for(var i=1; i<=pages; i++){ %>
+                    <li <%= current_page==i?'class="active"':'' %>><a href="#!/search/<%-keyword%>/<%=i%>/"><%=i%></a></li>
+                    <% } %>
+                    <li <%= current_page==pages?'class="disabled"':'' %>><a href="#!/search/<%-keyword%>/<%=pages%>/">&gt;</a></li>
+                </ul>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</div>

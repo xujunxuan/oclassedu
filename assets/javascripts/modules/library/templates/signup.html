@@ -1,0 +1,40 @@
+<div id="login">
+    <div class="container">
+        <div class="login-panel">
+            <form action="/user/signup" method="post" class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-xs-3">用户名</label>
+                    <div class="col-xs-9">
+                        <input class="form-control" type="text" name="username" placeholder="请输入用户名"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-3">密码</label>
+                    <div class="col-xs-9">
+                        <input class="form-control" type="password" name="password" placeholder="请输入密码"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-3">重复密码</label>
+                    <div class="col-xs-9">
+                        <input class="form-control" type="password" name="repassword" placeholder="请再次输入以上密码"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-3">验证码</label>
+                    <div class="col-xs-9">
+                        <div class="input-group">
+                            <input class="form-control" type="text" name="captcha" placeholder="请输入右侧验证码"/>
+                            <span class="input-group-addon" style="padding-top: 5px; padding-bottom: 5px;"><img src="/user/captcha" alt="点击换一个" onclick="this.src = '/user/captcha?_='+(new Date).getTime()"/></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-9 col-xs-offset-3">
+                        <input class="btn btn-primary btn-lg btn-block" type="submit" data-loading-text="注册中…" value="注册"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

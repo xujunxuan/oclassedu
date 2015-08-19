@@ -1,0 +1,49 @@
+<div id="breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="#!/">首页</a></li>
+            <li class="active"><%-data_info.content.title%></li>
+        </ol>
+    </div>
+</div>
+<div id="player">
+    <div class="container">
+        <h1><%-data_info.content.title%></h1>
+        <div class="music-cover"><img src="<%-data_info.content.image.url_path%>" alt="<%-data_info.content.title%>"/></div>
+        <div class="music-player">
+            <video src="<%-data_info.content.file.url_path%>" controls="controls" autoplay="autoplay" id="music-player"></video>
+        </div>
+    </div>
+</div>
+<% if(related_data){ %>
+<div id="related">
+    <div class="container">
+        <table class="table table-striped">
+            <colgroup>
+                <col width="40"/>
+                <col width="60"/>
+                <col width="*"/>
+                <col width="80"/>
+            </colgroup>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>播放</th>
+                <th>标题</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <% _.each(related_data, function(res, index){%>
+            <tr>
+                <td><%-index + 1%></td>
+                <td><a href="#!/detail/<%=res.id%>/"><i class="icon icon-play-circle-o"></i></a></td>
+                <td><%=res.content.title%></td>
+                <td><a href="<%=res.content.file.url_path%>">下载</a></td>
+            </tr>
+            <% }); %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<% } %>

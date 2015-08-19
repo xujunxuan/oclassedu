@@ -1,0 +1,78 @@
+<div id="breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="#!/">首页</a></li>
+            <li class="active"><%-data_info.content.title%></li>
+        </ol>
+    </div>
+</div>
+<div id="player">
+    <div class="container">
+        <h1><%-data_info.content.title%></h1>
+        <div id="video-player" class="video-player">
+            <video src="<%-data_info.content.file.url_path%>" controls="controls" autoplay="autoplay"></video>
+        </div>
+    </div>
+</div>
+<div id="editor" class="closed">
+    <div class="container">
+        <div class="video-editor">
+            <h3><i class="icon icon-sliders"></i> 视频下载</h3>
+            <div class="content">
+                <div class="range-slider">
+                    <input type="text" id="download-range" />
+                </div>
+                <div class="buttons">
+                    <a href="javascript:;" class="btn btn-primary" id="video-preview-btn" data-url="<%-data_info.content.file.url_path%>">预览</a>
+                    <a href="javascript:;" class="btn btn-primary" id="video-save-btn" data-url="<%-data_info.content.file.url_path%>">保存</a>
+                </div>
+            </div>
+            <a href="javascript:;" class="open-control">点击展开</a>
+        </div>
+        <div class="mobile-panel">
+            <div class="qrcode"><img src="./qrcodes/?uri=<%=encodeURIComponent(window.location.href)%>" alt="使用手机扫描二维码"/></div>
+            <h3><i class="icon icon-mobile-phone"></i> 手机浏览</h3>
+            <p>使用手机扫描左侧二维码浏览</p>
+        </div>
+    </div>
+</div>
+<% if(related_data){ %>
+<div id="related">
+    <div class="container">
+            <ul class="thumb-list">
+                <% _.each(related_data, function(res, index){%>
+                <% if(index+1 <= 20){ %>
+                <li>
+                    <a href="#!/detail/<%=res.id%>/" class="thumb"><img src="<%=res.content.image.url_path%>" alt="<%=res.content.title%>"/></a>
+                    <a href="#!/detail/<%=res.id%>/" class="intro"><%=res.content.title%></a>
+                </li>
+                <% } %>
+                <% }); %>
+            </ul>
+            <% if(related_data.length > 20){ %>
+            <ul class="thumb-list resource-more" style="display: none">
+                <% _.each(related_data, function(res, index){ %>
+                <% if(index+1 > 20){ %>
+                <li>
+                    <a href="#!/detail/<%=res.id%>/" class="thumb"><img src="<%=res.content.image.url_path%>" alt="<%=res.content.title%>"/></a>
+                    <a href="#!/detail/<%=res.id%>/" class="intro"><%=res.content.title%></a>
+                </li>
+                <% } %>
+                <% }); %>
+            </ul>
+            <div class="more-btn"><a href="javascript:void(0)">查看更多 <i class="icon icon-arrow-circle-down"></i></a></div>
+            <% } %>
+    </div>
+</div>
+<% } %>
+<div class="modal fade" id="preview">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+                <h4 class="modal-title">视频预览</h4>
+            </div>
+            <div class="modal-body" id="preview-player"></div>
+        </div>
+    </div>
+</div>

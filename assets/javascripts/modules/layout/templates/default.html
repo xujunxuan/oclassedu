@@ -1,0 +1,57 @@
+<!--<div id="site-nav">
+    <div class="container">
+        <ul class="site-nav-list">
+            <li><a href="#!/">首页</a></li>
+        </ul>
+        <ul class="user-nav-list">
+            <% if(site.username){ %>
+            <li>欢迎你，<%-site.username%></li>
+            <% }else{ %>
+            <li><a href="#!/signin/">登录</a>&nbsp;|&nbsp;</li>
+            <li><a href="#!/signup/">注册</a></li>
+            <% } %>
+        </ul>
+    </div>
+</div>-->
+<div id="header">
+    <div class="container">
+        <div class="header-inner">
+            <div class="brand">
+                <div class="logo"><a href="#!/"><img src="<%=site.pic%>" alt="<%=site.title%>"/></a></div>
+                <h1><a href="#!/"><%=site.title%></a><small><%= site.en_title ? site.en_title : "POWER BY <em>OCLASS</em>" %></small></h1> 
+            </div>
+            <form class="search-form" id="search-form">
+                <input type="text" name="keyword" class="form-control" placeholder="搜索视频、音频、PPT、文档等教育资源"/>
+                <button type="submit" class="btn btn-search"><i class="icon icon-search"></i></button>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="main-nav">
+    <div class="container">
+        <ul class="main-nav-list">
+            <li><a href="#!/">首页</a></li>
+            <% _.each(site.category,function(cate){ %>
+            <li <%= cateid==cate.id ? ' class="active"' : ''%>><a href="#!/category/<%=cate.id%>/"><%=cate.name%></a></li>
+            <% }) %>
+        </ul>
+    </div>
+</div>
+<div id="container"></div>
+<% if(site.links){ %>
+<div id="links">
+    <div class="container">
+        <h3>网站链接</h3>
+        <ul class="link-list">
+            <% _.each(site.links, function(link){%>
+            <li><a href="<%=link.link%>" target="_blank" data-bypass="true"><img src="<%=link.pic%>" alt="<%=link.name%>"/></a></li>
+            <% }) %>
+        </ul>
+    </div>
+</div>
+<% } %>
+<div id="footer">
+    <div class="container">
+        <div class="copyright"><%=site.copyright%></div>
+    </div>
+</div>

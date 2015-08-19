@@ -1,0 +1,22 @@
+<div id="breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="#!/">首页</a></li>
+            <li class="active"><%-data_info.content.title%></li>
+        </ol>
+    </div>
+</div>
+<div id="player">
+    <div class="container">
+        <h1><%-data_info.content.title%></h1>
+        <div class="flexslider" id="image-slider">
+            <ul class="slides">
+                <% _.each(related_data, function(res, index){%>
+                <li>
+                    <img src="<%=res.content.file.url_path%>" />
+                </li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+</div>

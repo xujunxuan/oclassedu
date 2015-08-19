@@ -1,0 +1,29 @@
+<div id="breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="#!/">首页</a></li>
+            <li class="active"><%-data_info.content.title%></li>
+        </ol>
+    </div>
+</div>
+<div id="document">
+    <div class="container">
+        <div class="reader" id="reader"></div>
+        <% if(related_data){ %>
+        <div class="page-doc-list">
+                <ul class="item-list">
+                    <% _.each(related_data, function(res, index){%>
+                    <li>
+                        <div class="title">《<%=res.content.title%>》</div>
+                        <div class="opts">
+                            <a href="#!/detail/<%=res.id%>/">阅读</a>
+                            <a href="<%=res.content.file.url_path%>">下载</a>
+                        </div>
+                    </li>
+                    <% }); %>
+                </ul>
+        </div>
+        <% } %>
+
+    </div>
+</div>

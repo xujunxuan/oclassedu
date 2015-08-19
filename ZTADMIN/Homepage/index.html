@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/style.css" />
+    <script type="text/javascript" src="../Js/jquery.js"></script>
+    <script type="text/javascript" src="../Js/jquery.sorted.js"></script>
+    <script type="text/javascript" src="../Js/bootstrap.js"></script>
+    <script type="text/javascript" src="../Js/ckform.js"></script>
+    <script type="text/javascript" src="../Js/common.js"></script>
+
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }   
+
+                  /*a  upload */
+            .a-upload {
+                padding: 4px 10px;
+                height: 20px;
+                line-height: 20px;
+                position: relative;
+                cursor: pointer;
+                color: #888;
+                background: #fafafa;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                overflow: hidden;
+                display: inline-block;
+                *display: inline;
+                *zoom: 1
+            }
+
+            .a-upload  input {
+                position: absolute;
+                font-size: 100px;
+                right: 0;
+                top: 0;
+                opacity: 0;
+                filter: alpha(opacity=0);
+                cursor: pointer
+            }
+
+            .a-upload:hover {
+                color: #444;
+                background: #eee;
+                border-color: #ccc;
+                text-decoration: none
+            }
+
+
+    </style>
+</head>
+<body>
+<form class="form-inline definewidth m20" action="index.html" method="get">  
+   <h4>首页幻灯片设置列表
+    &nbsp;&nbsp; 
+
+    <button type="button" class="btn btn-success" id="addnew">新增图片</button></h3> 
+</form>
+<table class="table table-bordered table-hover definewidth m10" >
+    <thead>
+  <!--   <tr>
+        <th>缩略图</th>
+        <th>编号</th>
+        <th>状态</th>
+        <th>操作</th>
+    </tr> -->
+    </thead>
+	     <tr>
+        
+            <td width="260px"><img src="pic1.jpg" ></td>
+         <!--    <td>001</td>
+            <td>1</td> -->
+            <td  >
+                         <a href="javascript:;" class="a-upload">
+            <input type="file" name="picture1" accept="image/png,image,jpg"  id="fileId1">点击这里上传封面 格式:/mage/png,image,jpg;
+             </a>
+                  
+            </td>
+
+       
+        </tr>
+         <tr>
+      
+            <td width="260px"><img src="pic2.jpg" ></td>
+          <!--   <td>002</td>
+            <td>1</td> -->
+            <td>
+                  <a href="javascript:;" class="a-upload">
+            <input type="file" name="picture1" accept="image/png,image,jpg"  id="fileId1">点击这里上传封面 格式:/mage/png,image,jpg;
+             </a>
+                  
+            </td>
+
+           
+        </tr>
+        <tr>
+     
+            <td width="260px"><img src="pic3.jpg" ></td>
+        <!--     <td>003</td>
+            <td>1</td> -->
+            <td>
+                      <a href="javascript:;" class="a-upload">
+            <input type="file" name="picture1" accept="image/png,image,jpg"  id="fileId1">点击这里上传封面 格式:/mage/png,image,jpg;
+             </a>
+                  
+            </td>
+
+           
+        </tr>
+
+
+
+        </table>
+		</body>
+		</html>
+
+<script>
+    $(function () {
+        
+		$('#addnew').click(function(){
+
+				window.location.href="add.html";
+		 });
+
+
+    });
+
+	function del(id)
+	{
+		
+		
+		if(confirm("确定要删除吗？"))
+		{
+		
+			var url = "index.html";
+			
+			window.location.href=url;		
+		
+		}
+	
+	
+	
+	
+	}
+</script>

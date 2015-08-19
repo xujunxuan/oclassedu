@@ -1,0 +1,155 @@
+<div id="slide">
+    <!--<div class="rank-panel">
+        <div class="tit">
+            <ul class="switch">
+                <li class="active"><a href="javascript:;" data-target="#rank-tophits" data-toggle="tab">点击排行</a></li>
+                <li><a href="javascript:;" data-target="#rank-newest" data-toggle="tab">最新添加</a></li>
+            </ul>
+        </div>
+        <div class="tab-content cnt">
+            <ol class="tab-pane active rank-list" id="rank-tophits">
+                <% _.each(tophits, function(item, i){ %>
+                <li<%= i<3 ? ' class="top"':'' %>><a href="#!/resource/<%=item.id%>/"><span class="num"><%= i<9 ? '0'+(i + 1) : i + 1 %></span><%=item.title%></a></li>
+                <% }) %>
+            </ol>
+            <ol class="tab-pane rank-list" id="rank-newest">
+                <% _.each(newest, function(item, i){ %>
+                <li<%= i<3 ? ' class="top"':'' %>><a href="#!/resource/<%=item.id%>/"><span class="num"><%= i<9 ? '0'+(i + 1) : i + 1 %></span><%=item.title%></a></li>
+                <% }) %>
+            </ol>
+        </div>
+    </div>-->
+    <div id="carousel-generic" class="carousel slide container" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <% _.each(ppts, function(res, i){%>
+            <li data-target="#carousel-generic" data-slide-to="<%=i%>" <%= i==0?'class="active"':''%>>
+            <!--<img src="<%=res.pic%>" alt="<%=res.title%>">-->
+            <!--<p><%=i+1%></p>-->
+            <span class="num"></span>
+            </li>
+            <% }) %>
+        </ol>
+
+        <div class="carousel-inner">
+            <% _.each(ppts, function(res, i){%>
+            <div class="item <%= i==0?'active':''%>" style="background-color:#ffffff">
+                <a href="#!/resource/<%=res.id%>/">
+                    <img src="<%-res.recommend_pic%>" alt="<%-res.title%>">
+                    <div class="carousel-caption">
+                        <h2><%-res.comments.ppt_title%></h2>
+                        <p><%-res.comments.ppt_subtitle%></p>
+                    </div>
+                </a>
+            </div>
+            <% }) %>
+        </div>
+        <% $('#carousel-generic').carousel(); %>
+    </div>
+<!--NEW SLIDER-->
+    <div id="carousel-ad" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <% _.each(ppts, function(res, i){%>
+            <li data-target="#carousel-ad" data-slide-to="<%=i%>" <%= i==0?'class="active"':''%>>
+            <span class="sl">精品推荐</span>
+            </li>
+            <% }) %>
+        </ol>
+
+        <div class="carousel-inner" style="background-color:#ffffff">
+            <% _.each(ppts, function(res, i){%>
+            <div class="item <%= i==0?'active':''%> container">
+                <ul class="thumb-list">
+            <% if(bigpic){ %>
+            <li class="lg">
+                <a href="#!/resource/<%=bigpic[0].id%>/" class="thumb"><img src="<%=bigpic[0].recommend_pic%>" alt="<%=bigpic[0].title%>"/></a>
+                <a href="#!/resource/<%=bigpic[0].id%>/" class="intro"><%=bigpic[0].title%></a>
+            </li>
+            <% } %>
+            <% if(smallpic){ %>
+            <% _.each(smallpic, function(res, i){ %>
+            <% if(i<2) { %>
+            <li class="sl">
+            <% } %>
+            <% if(i>=2 && i<4) { %>
+            <li class="sl small-hide">
+            <% } %>
+            <% if(i>=4 && i<6) { %>
+            <li class="sl middle-hide">
+            <% } %>
+                <a href="#!/resource/<%=res.id%>/" class="thumb"><img src="<%=res.recommend_pic%>" alt="<%=res.title%>"/></a>
+                <a href="#!/resource/<%=res.id%>/" class="intro"><%=res.title%></a>
+            </li>
+            
+
+            <% }) %>
+            <% } %>
+                </ul>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+<!--NEW SLIDER ENDS-->
+</div>
+<!--<% if(bigpic || smallpic){ %>
+<div id="recommend">
+    <div class="container">
+        <h2>精品推荐</h2>
+        <ul class="thumb-list">
+            <% if(bigpic){ %>
+            <li class="lg">
+                <a href="#!/resource/<%=bigpic[0].id%>/" class="thumb"><img src="<%=bigpic[0].recommend_pic%>" alt="<%=bigpic[0].title%>"/></a>
+                <a href="#!/resource/<%=bigpic[0].id%>/" class="intro"><%=bigpic[0].title%></a>
+            </li>
+            <% } %>
+            <% if(smallpic){ %>
+            <% _.each(smallpic, function(res, i){ %>
+            <li>
+                <a href="#!/resource/<%=res.id%>/" class="thumb"><img src="<%=res.recommend_pic%>" alt="<%=res.title%>"/></a>
+                <a href="#!/resource/<%=res.id%>/" class="intro"><%=res.title%></a>
+            </li>
+            <% }) %>
+            <% } %>
+        </ul>
+    </div>
+</div>
+<% } %>-->
+<% if(recommend){ %>
+<div id="classes">
+    <% _.each(recommend, function(cate){ %>
+    <div class="class-cate">
+        <div class="container">
+            <ul class="thumb-list">
+                <li class="title">
+                    <a href="#!/category/<%=cate.id%>/">
+                        <h3><%=cate.name%></h3>
+                        <h4></h4>
+                        <div class="more">更多 &gt;&gt;</div>
+                    </a>
+                </li>
+                <% _.each(cate.list, function(res, index){ %>
+                <% if(index+1 <= 4){ %>
+                <li>
+                    <a href="#!/resource/<%=res.id%>/" class="thumb"><img src="<%=res.recommend_pic%>" alt="<%=res.title%>"/></a>
+                    <a href="#!/resource/<%=res.id%>/" class="intro"><%=res.title%></a>
+                </li>
+                <% } %>
+                <% }) %>
+            </ul>
+            <!--<% if(cate.list && cate.list.length > 14){ %>
+            <ul class="thumb-list resource-more" style="display: none">
+                <% _.each(cate.list, function(res, index){ %>
+                <% if(index+1 > 14){ %>
+                <li>
+                    <a href="#!/resource/<%=res.id%>/" class="thumb"><img src="<%=res.recommend_pic%>" alt="<%=res.title%>"/></a>
+                    <a href="#!/resource/<%=res.id%>/" class="intro"><%=res.title%></a>
+                </li>
+                <% } %>
+                <% }); %>
+            </ul>
+            <div class="more-btn"><a href="javascript:void(0)">查看更多 <i class="icon icon-arrow-circle-down"></i></a></div>
+            <% } %>-->
+        </div>
+    </div>
+    <% }) %>
+</div>
+<% } %>

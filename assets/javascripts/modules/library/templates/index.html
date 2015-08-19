@@ -1,0 +1,150 @@
+<div id="header">
+    <div class="container">
+        <div class="header-inner">
+            <div class="brand">
+                <div class="logo"><a href="#!/"><img src="assets/images/logo.png" alt="数图教育视频资源总平台"/></a></div>
+                <h1><a href="#!/"><em>数图</em>教育视频资源总平台</a><small>POWER BY <em>OCLASS</em></small></h1>
+            </div>
+            <form class="search-form" id="search-form">
+                <input type="text" name="keyword" class="form-control" placeholder="搜索视频、音频、PPT、文档等教育资源"/>
+                <button type="submit" class="btn btn-search"><i class="icon icon-search"></i></button>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="main-nav">
+    <div class="container">
+        <ul class="main-nav-list">
+            <li><a href="#!/">首页</a></li>
+            <% _.each(site.library,function(lib){ %>
+            <li><a href="<%=lib.host%>/"><%=lib.name%></a></li>
+            <% }) %>
+        </ul>
+    </div>
+</div>
+<div id="container">
+    <div id="slide">
+        <div class="rank-panel">
+            <div class="tit">
+                <ul class="switch">
+                    <li class="active"><a href="javascript:;" data-target="#rank-tophits" data-toggle="tab">点击排行</a></li>
+                    <li><a href="javascript:;" data-target="#rank-newest" data-toggle="tab">最新添加</a></li>
+                </ul>
+            </div>
+            <div class="tab-content cnt">
+                <ol class="tab-pane active rank-list" id="rank-tophits">
+                    <% _.each(index.tophits, function(item, i){ %>
+                    <li<%= i<3 ? ' class="top"':'' %>><a href="#!/resource/<%=item.id%>/"><span class="num"><%= i<9 ? '0'+(i + 1) : i + 1 %></span><%=item.title%></a></li>
+                    <% }) %>
+                </ol>
+                <ol class="tab-pane rank-list" id="rank-newest">
+                    <% _.each(index.newest, function(item, i){ %>
+                    <li<%= i<3 ? ' class="top"':'' %>><a href="#!/resource/<%=item.id%>/"><span class="num"><%= i<9 ? '0'+(i + 1) : i + 1 %></span><%=item.title%></a></li>
+                    <% }) %>
+                </ol>
+            </div>
+        </div>
+        <div id="carousel-generic" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <% _.each(index.ppts, function(res, i){%>
+                <li data-target="#carousel-generic" data-slide-to="<%=i%>" <%= i==0?'class="active"':''%>>
+                <img src="<%=res.pic%>" alt="<%=res.title%>">
+                </li>
+                <% }) %>
+            </ol>
+            <div class="carousel-inner">
+                <% _.each(index.ppts, function(res, i){%>
+                <div class="item <%= i==0?'active':''%>" style="background-color: <%= (res.comments && res.comments.bg_color) ? res.comments.bg_color : '#000000'%>">
+                    <a href="#!/resource/<%=res.id%>/">
+                        <img src="<%-res.recommend_pic%>" alt="<%-res.title%>">
+                        <div class="carousel-caption">
+                            <h2><%-res.comments.ppt_title%></h2>
+                            <p><%-res.comments.ppt_subtitle%></p>
+                        </div>
+                    </a>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+    <% if(index.bigpic || index.smallpic){ %>
+    <div id="recommend">
+        <div class="container">
+            <h2>精品推荐</h2>
+            <ul class="thumb-list">
+                <% if(index.bigpic){ %>
+                <li class="lg">
+                    <a href="#!/resource/<%-index.bigpic[0].id%>/" class="thumb"><img src="<%-index.bigpic[0].recommend_pic%>" alt="<%=index.bigpic[0].title%>"/></a>
+                    <a href="#!/resource/<%-index.bigpic[0].id%>/" class="intro"><%-index.bigpic[0].title%></a>
+                </li>
+                <% } %>
+                <% if(index.smallpic){ %>
+                <% _.each(index.smallpic, function(res, i){ %>
+                <li>
+                    <a href="#!/resource/<%=res.id%>/" class="thumb"><img src="<%=res.recommend_pic%>" alt="<%=res.title%>"/></a>
+                    <a href="#!/resource/<%=res.id%>/" class="intro"><%=res.title%></a>
+                </li>
+                <% }) %>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+    <% } %>
+    <% if(index.recommend){ %>
+    <div id="classes">
+        <% _.each(index.recommend, function(cate){ %>
+        <div class="library-cate">
+            <div class="container">
+                <ul class="thumb-list">
+                    <li class="title">
+                        <a href="<%-cate.host%>">
+                            <h3><%=cate.title%></h3>
+                            <h4></h4>
+                            <div class="more">更多 &gt;&gt;</div>
+                        </a>
+                    </li>
+                    <% _.each(cate.list, function(res, i){ %>
+                    <% if(i+1 <= 14){ %>
+                    <li>
+                        <a href="<%-cate.host%>/#!/resource/<%-res.id%>/" class="thumb"><img src="<%-res.recommend_pic%>" alt="<%=res.title%>"/></a>
+                        <a href="<%-cate.host%>/#!/resource/<%-res.id%>/" class="intro"><%=res.title%></a>
+                    </li>
+                    <% } %>
+                    <% }) %>
+                </ul>
+                <% if(cate.list && cate.list.length > 14){ %>
+                <ul class="thumb-list resource-more" style="display: none">
+                    <% _.each(cate.list, function(res, i){ %>
+                    <% if(i+1 > 14){ %>
+                    <li>
+                        <a href="<%-cate.host%>/#!/resource/<%-res.id%>/" class="thumb"><img src="<%-res.recommend_pic%>" alt="<%=res.title%>"/></a>
+                        <a href="<%-cate.host%>/#!/resource/<%-res.id%>/" class="intro"><%=res.title%></a>
+                    </li>
+                    <% } %>
+                    <% }); %>
+                </ul>
+                <div class="more-btn"><a href="javascript:void(0)">查看更多 <i class="icon icon-arrow-circle-down"></i></a></div>
+                <% } %>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+    <% } %>
+</div>
+<% if(site.links){ %>
+<div id="links">
+    <div class="container">
+        <h3>网站链接</h3>
+        <ul class="link-list">
+            <% _.each(site.links, function(link){%>
+            <li><a href="<%=link.link%>" target="_blank" data-bypass="true"><img src="<%=link.pic%>" alt="<%=link.name%>"/></a></li>
+            <% }) %>
+        </ul>
+    </div>
+</div>
+<% } %>
+<div id="footer">
+    <div class="container">
+        <div class="copyright"><%=site.copyright%></div>
+    </div>
+</div>

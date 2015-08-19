@@ -1,0 +1,43 @@
+<div id="breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="#!/">首页</a></li>
+            <li class="active">访问统计</li>
+        </ol>
+    </div>
+</div>
+<div id="category">
+    <div class="container">
+        <h1>访问统计</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>库/栏目名称</th>
+                    <th>周点击</th>
+                    <th>月点击</th>
+                    <th>总点击</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% _.each(stats, function(stat){ %>
+                    <tr>
+                        <td><a href="#!/"><%-stat.lib_name%></a></td>
+                        <td><%-stat.week_hit_count%></td>
+                        <td><%-stat.month_hit_count%></td>
+                        <td><%-stat.hit_count%></td>
+                    </tr>
+                    <% if(stat.cate_stat){ %>
+                        <% _.each(stat.cate_stat, function(st){ %>
+                        <tr>
+                            <td><a href="#!/category/<%-st.category_id%>"><%-st.cate_name%></a></td>
+                            <td><%-st.week_hit_count%></td>
+                            <td><%-st.month_hit_count%></td>
+                            <td><%-st.hit_count%></td>
+                        </tr>
+                        <% }) %>
+                    <% } %>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,164 @@
+<div id="breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="#!/">首页</a></li>
+            <li><a href="#!/">课程</a></li>
+            <li class="active"><%=resource.title%></li>
+        </ol>
+    </div>
+</div>
+<div id="resource">
+    <div class="resource-cover">
+        <div class="container">
+            <div class="cover">
+                <div class="thumb">
+                    <img src="<%=resource.pic%>" alt="<%=resource.title%>"/>
+                </div>
+                <h1><%=resource.title%></h1>
+                <div class="intro">
+                    <p>课程介绍</p>
+                    <%=resource.intro%>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="resource-info">
+        <div class="container">
+            <div class="author">
+                <h3><%- resource.comments.author_title ? resource.comments.author_title : '讲师介绍'%></h3>
+                <div class="cnt">
+                <% _.each(resource.author_list,function(author, index){ %>
+                    <div class="item<%=index>0?' ismore': ''%>">
+                        <div class="pic"><img src="<%=author.pic%>" alt="<%=author.name%>"/></div>
+                        <div class="name">讲师：<strong><%=author.name%></strong></div>
+                        <div class="intro">简介：<%=author.intro%></div>
+                    </div>
+                <% }) %>
+                </div>
+            </div>
+            <div class="college">
+                <h3><%- resource.comments.college_title ? resource.comments.college_title : '学院介绍'%></h3>
+                <div class="cnt">
+                <% _.each(resource.college_list,function(college, index){ %>
+                    <div class="item<%=index>0?' ismore': ''%>">
+                        <%=college.intro%>
+                    </div>
+                <% }) %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="resource-list">
+        <div class="container">
+            <% if(video_list){ %>
+                <ul class="thumb-list">
+                    <% _.each(video_list, function(res, index){%>
+                    <% if(index+1 <= 20){ %>
+                    <li>
+                        <a href="#!/detail/<%=res.id%>/" class="thumb" target="_blank"><img src="<%=res.img.url_path%>" alt="<%=res.content.title%>"/></a>
+                        <a href="#!/detail/<%=res.id%>/" class="intro" target="_blank"><%=res.content.title%></a>
+                    </li>
+                    <% } %>
+                    <% }); %>
+                </ul>
+                <% if(video_list.length > 20){ %>
+                <ul class="thumb-list resource-more" style="display: none">
+                    <% _.each(video_list, function(res, index){ %>
+                    <% if(index+1 > 20){ %>
+                    <li>
+                        <a href="#!/detail/<%=res.id%>/" class="thumb" target="_blank"><img src="<%=res.img.url_path%>" alt="<%=res.content.title%>"/></a>
+                        <a href="#!/detail/<%=res.id%>/" class="intro" target="_blank"><%=res.content.title%></a>
+                    </li>
+                    <% } %>
+                    <% }); %>
+                </ul>
+                <div class="more-btn"><a href="javascript:void(0)">查看更多 <i class="icon icon-arrow-circle-down"></i></a></div>
+                <% } %>
+            <% } %>
+            <% if(img_list){ %>
+                <h2>图片<small>Pictrues</small></h2>
+                <ul class="thumb-list">
+                    <% _.each(img_list, function(res, index){%>
+                    <% if(index+1 <= 20){ %>
+                    <li>
+                        <a href="#!/detail/<%=res.id%>/" class="thumb" target="_blank"><img src="<%=res.img.url_path%>" alt="<%=res.content.title%>"/></a>
+                        <a href="#!/detail/<%=res.id%>/" class="intro" target="_blank"><%=res.content.title%></a>
+                    </li>
+                    <% } %>
+                    <% }); %>
+                </ul>
+                <% if(img_list.length > 20){ %>
+                <ul class="thumb-list resource-more" style="display: none">
+                    <% _.each(img_list, function(res, index){ %>
+                    <% if(index+1 > 20){ %>
+                    <li>
+                        <a href="#!/detail/<%=res.id%>/" class="thumb" target="_blank"><img src="<%=res.img.url_path%>" alt="<%=res.content.title%>"/></a>
+                        <a href="#!/detail/<%=res.id%>/" class="intro" target="_blank"><%=res.content.title%></a>
+                    </li>
+                    <% } %>
+                    <% }); %>
+                </ul>
+                <div class="more-btn"><a href="javascript:void(0)">查看更多 <i class="icon icon-arrow-circle-down"></i></a></div>
+                <% } %>
+            <% } %>
+            <% if(music_list){ %>
+                <h2>音频<small>Sounds</small></h2>
+                <table class="table table-striped">
+                    <colgroup>
+                        <col width="40"/>
+                        <col width="60"/>
+                        <col width="*"/>
+                        <col width="80"/>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>播放</th>
+                        <th>标题</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% _.each(music_list, function(res, index){%>
+                    <tr>
+                        <td><%-index + 1%></td>
+                        <td><a href="#!/detail/<%=res.id%>/" target="_blank"><i class="icon icon-play-circle-o"></i></a></td>
+                        <td><%=res.content.title%></td>
+                        <td><a href="<%=res.file.url_path%>" target="_blank">下载</a></td>
+                    </tr>
+                    <% }); %>
+                    </tbody>
+                </table>
+            <% } %>
+            <% if(doc_list){ %>
+                <h2>文档<small>Files</small></h2>
+                <table class="table table-striped">
+                    <colgroup>
+                        <col width="40"/>
+                        <col width="60"/>
+                        <col width="*"/>
+                        <col width="80"/>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>阅读</th>
+                        <th>标题</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% _.each(doc_list, function(res, index){%>
+                    <tr>
+                        <td><%-index + 1%></td>
+                        <td><a href="#!/detail/<%=res.id%>/" target="_blank"><i class="icon icon-eye"></i></a></td>
+                        <td>《<%=res.content.title%>》</td>
+                        <td><a href="<%=res.file.url_path%>" target="_blank">下载</a></td>
+                    </tr>
+                    <% }); %>
+                    </tbody>
+                </table>
+            <% } %>
+        </div>
+    </div>
+</div>

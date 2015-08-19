@@ -1,0 +1,121 @@
+.class-cate .cxf_thumb-list li img{
+	width: 255px;
+	height: 190px;
+-moz-box-shadow:2px 2px 10px #eee;
+-webkit-box-shadow:2px 2px 10px #eee;
+box-shadow:2px 2px 10px #eee;
+
+}
+.class-cate ul,.class-cate li{
+	 margin: 0px;
+	 padding: 0px;
+}
+
+.class-cate .cxf_thumb-list li{
+	 list-style: none;
+
+	 padding: 15px;
+	 float: left;
+}
+.blueline{
+	height: 2px;
+	background-color: #11567C;
+	margin: 40px;
+	clear: both;
+}
+
+.class-cate ul:after {
+  clear: both;
+}
+
+.homebanner{ width:100%; height:425px; margin:0px auto;}
+.fullSlide {width: 100%;position: relative;height: 425px;background: #000;margin: 0 auto;}
+.fullSlidetext {width: 1002px;height: 20px;	position: relative;	margin: 0 auto;}
+.fullSlide .bd {margin: 0 auto;position: relative;z-index: 0;overflow: hidden;}
+.fullSlide .bd ul {width: 100% !important;}
+.fullSlide .bd li {width: 100% !important;height: 425px;overflow: hidden;text-align: center;}
+.fullSlide .bd li a {/*display:block;height:360px;*/}
+.fullSlide .bd li img {
+
+width: 100%;
+height: 425px;
+}
+.fullSlide .hd {width: 100%;position: absolute;z-index: 1;bottom: 0;left: 0;height: 40px;line-height: 40px;}
+.fullSlide .hd ul {text-align: center;}
+/* 矩形点
+.fullSlide .hd ul li {cursor: pointer;display: inline-block;*display:inline;zoom: 1;width: 42px;height: 11px;margin: 1px;overflow: hidden;background: #fff;filter: alpha(opacity=50);opacity: 0.5;line-height: 999px;}*/
+/*圆形点*/
+.fullSlide .hd ul li { background: none repeat scroll 0 0 #fff;
+    border-radius: 100px;
+    cursor: pointer;
+    display: inline-block;
+    height: 15px;
+    line-height: 999px;
+    margin: 0 10px;
+    opacity: 1;
+    overflow: hidden;
+    width: 15px;*display:inline;zoom: 1;}
+.fullSlide .hd ul .on {background:none;border:1px #FFF solid;}
+.fullSlide .prev, .fullSlide .next {
+    background: url("images/slider-arrow.png") no-repeat scroll -126px -137px #fff;
+    cursor: pointer;
+    display: none;
+    height: 60px;
+    left: 5%;
+    margin-top: -30px;
+    opacity: 0.5;
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    z-index: 1;
+}
+.fullSlide .next {left: auto;right: 5%;background-position: -6px -137px;}
+
+
+
+.cxf_bigger_img{
+width:550px; 
+height: 400px;
+
+}
+
+.cxf_bigger_img img{
+	width:530px; 
+	height: 400px;
+
+
+}
+.cxf_small_img{
+
+width:270px; 
+height: 200px;
+}
+
+.cxf_small_img img{
+
+width:250px; 
+height: 200px;
+}
+.cxf-special{
+margin: 0px;
+ 
+list-style-type: none;
+padding: 0px;
+}
+
+.cxf-special ul{
+margin: 0px;
+float:  left;
+list-style-type: none;
+padding: 0px;
+}
+.cxf-special li{
+margin: 0px;
+float:  left;
+list-style-type: none;
+padding: 10px;
+}
+.cxf-special li a{
+display: block;
+}
+ 
