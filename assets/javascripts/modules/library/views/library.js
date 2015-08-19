@@ -16,6 +16,11 @@ define([
         }
         , render: function(){
             this.$el.html(this.template(this.model.toJSON()));
+            $('#image-slider').flexslider({
+                animation: "fade",
+                //smoothHeight: true,
+                //manualControlEvent:"hover"
+            });
             return this;
         }
         , toggleMore: function(e){

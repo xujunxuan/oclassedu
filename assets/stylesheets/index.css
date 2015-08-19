@@ -1,5 +1,5 @@
 .class-cate .cxf_thumb-list li img{
-	width: 255px;
+	width: 239px;
 	height: 190px;
 -moz-box-shadow:2px 2px 10px #eee;
 -webkit-box-shadow:2px 2px 10px #eee;
@@ -119,3 +119,13 @@ padding: 10px;
 display: block;
 }
  
+.slider-holder
+{
+    height:425px;
+    width:100%;
+}
+
+.slider-holder img
+{
+    height:425px;
+}

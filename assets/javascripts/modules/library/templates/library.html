@@ -1,50 +1,27 @@
-<div id="slide">
-    <!--<div class="rank-panel">
-        <div class="tit">
-            <ul class="switch">
-                <li class="active"><a href="javascript:;" data-target="#rank-tophits" data-toggle="tab">点击排行</a></li>
-                <li><a href="javascript:;" data-target="#rank-newest" data-toggle="tab">最新添加</a></li>
+<!--ANOTHER SLIDE -->
+    <div class="container">
+        <!--<h1>TEST</h1>-->
+        <div class="flexslider" id="image-slider">
+            <ul class="slides">
+                <% _.each(ppts, function(res, index){%>
+                <li>
+                    <div class="slider-holder">
+                        <a href="#!/resource/<%=res.id%>/">
+                        <img src="<%-res.recommend_pic%>" alt="<%-res.title%>">
+                        <div class="carousel-caption">
+                            <h2><%-res.comments.ppt_title%></h2>
+                            <p><%-res.comments.ppt_subtitle%></p>
+                        </div>
+                        </a>
+                    </div>
+                </li>
+                <% }); %>
             </ul>
         </div>
-        <div class="tab-content cnt">
-            <ol class="tab-pane active rank-list" id="rank-tophits">
-                <% _.each(tophits, function(item, i){ %>
-                <li<%= i<3 ? ' class="top"':'' %>><a href="#!/resource/<%=item.id%>/"><span class="num"><%= i<9 ? '0'+(i + 1) : i + 1 %></span><%=item.title%></a></li>
-                <% }) %>
-            </ol>
-            <ol class="tab-pane rank-list" id="rank-newest">
-                <% _.each(newest, function(item, i){ %>
-                <li<%= i<3 ? ' class="top"':'' %>><a href="#!/resource/<%=item.id%>/"><span class="num"><%= i<9 ? '0'+(i + 1) : i + 1 %></span><%=item.title%></a></li>
-                <% }) %>
-            </ol>
-        </div>
-    </div>-->
-    <div id="carousel-generic" class="carousel slide container" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <% _.each(ppts, function(res, i){%>
-            <li data-target="#carousel-generic" data-slide-to="<%=i%>" <%= i==0?'class="active"':''%>>
-            <!--<img src="<%=res.pic%>" alt="<%=res.title%>">-->
-            <!--<p><%=i+1%></p>-->
-            <span class="num"></span>
-            </li>
-            <% }) %>
-        </ol>
-
-        <div class="carousel-inner">
-            <% _.each(ppts, function(res, i){%>
-            <div class="item <%= i==0?'active':''%>" style="background-color:#ffffff">
-                <a href="#!/resource/<%=res.id%>/">
-                    <img src="<%-res.recommend_pic%>" alt="<%-res.title%>">
-                    <div class="carousel-caption">
-                        <h2><%-res.comments.ppt_title%></h2>
-                        <p><%-res.comments.ppt_subtitle%></p>
-                    </div>
-                </a>
-            </div>
-            <% }) %>
-        </div>
-        <% $('#carousel-generic').carousel(); %>
     </div>
+<!--ANOTHER SLIDE ENDS-->
+
+<div id="slide">
 <!--NEW SLIDER-->
     <div id="carousel-ad" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -73,13 +50,14 @@
             <% if(i>=2 && i<4) { %>
             <li class="sl small-hide">
             <% } %>
-            <% if(i>=4 && i<6) { %>
+            <!--<% if(i>=4 && i<6) { %>
             <li class="sl middle-hide">
-            <% } %>
+            <% } %>-->
+            <% if(i<4) { %>
                 <a href="#!/resource/<%=res.id%>/" class="thumb"><img src="<%=res.recommend_pic%>" alt="<%=res.title%>"/></a>
                 <a href="#!/resource/<%=res.id%>/" class="intro"><%=res.title%></a>
             </li>
-            
+            <% } %>
 
             <% }) %>
             <% } %>
@@ -90,6 +68,9 @@
     </div>
 <!--NEW SLIDER ENDS-->
 </div>
+
+
+
 <!--<% if(bigpic || smallpic){ %>
 <div id="recommend">
     <div class="container">
@@ -127,7 +108,7 @@
                     </a>
                 </li>
                 <% _.each(cate.list, function(res, index){ %>
-                <% if(index+1 <= 4){ %>
+                <% if(index+1 <= 3){ %>
                 <li>
                     <a href="#!/resource/<%=res.id%>/" class="thumb"><img src="<%=res.recommend_pic%>" alt="<%=res.title%>"/></a>
                     <a href="#!/resource/<%=res.id%>/" class="intro"><%=res.title%></a>
@@ -149,6 +130,7 @@
             <div class="more-btn"><a href="javascript:void(0)">查看更多 <i class="icon icon-arrow-circle-down"></i></a></div>
             <% } %>-->
         </div>
+        
     </div>
     <% }) %>
 </div>

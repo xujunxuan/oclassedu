@@ -24,9 +24,9 @@ require.config({
             exports: '$.fn.ionRangeSlider'
             //jQuery的范围滑块 plugin
         }
-        , superlider: {
+        , superslide: {
             deps: ['jquery'],
-            exports: '$.fn.superlider'
+            exports: '$.fn.superslide'
         } 
     }
     , paths: {
@@ -38,7 +38,7 @@ require.config({
         , bootstrap:              'vendor/bootstrap'
         , jwplayer:               'vendor/jwplayer'
         , ionRangeSlider:         'vendor/jquery.ion.rangeSlider'
-        , superlider:             'vendor/superlider.2.1'
+        , superslide:             'vendor/superslide.2.1'
         , flexslider:             'vendor/jquery.flexslider'
         , textSearch:             'vendor/jquery.textSearch'
         , app:                    'app'

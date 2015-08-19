@@ -8228,7 +8228,7 @@ html[xmlns] .flexslider .slides {
   zoom: 1;
 }
 .flexslider .slides img {
-  height: auto;
+  
 }
 .flex-viewport {
   max-height: 2000px;
@@ -8382,7 +8382,7 @@ html[xmlns] .flexslider .slides {
   cursor: pointer;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
-  -ms-transition: all 1s ease;
+  -ms-transition: all 1s ease
   -o-transition: all 1s ease;
   transition: all 1s ease;
 }
@@ -8458,15 +8458,15 @@ html[xmlns] .flexslider .slides {
   *padding-left: 0;
   *padding-right: 0;
   *overflow: hidden;
-  width: 234px;
+  width: 255px;
   margin-top: 15px;
 }
 .thumb-list li .thumb {
   display: block;
 }
 .thumb-list li .thumb img {
-  width: 204px;
-  height: 112px;
+  width: 235px;
+  height: 128px;
 }
 .thumb-list li .intro {
   color: #333;
