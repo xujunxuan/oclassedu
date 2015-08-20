@@ -21,54 +21,33 @@
     </div>
 <!--ANOTHER SLIDE ENDS-->
 
-<div id="slide">
-<!--NEW SLIDER-->
-    <div id="carousel-ad" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <% _.each(ppts, function(res, i){%>
-            <li data-target="#carousel-ad" data-slide-to="<%=i%>" <%= i==0?'class="active"':''%>>
-            <span class="sl">精品推荐</span>
-            </li>
-            <% }) %>
-        </ol>
 
-        <div class="carousel-inner" style="background-color:#ffffff">
-            <% _.each(ppts, function(res, i){%>
-            <div class="item <%= i==0?'active':''%> container">
-                <ul class="thumb-list">
-            <% if(bigpic){ %>
-            <li class="lg">
-                <a href="#!/resource/<%=bigpic[0].id%>/" class="thumb"><img src="<%=bigpic[0].recommend_pic%>" alt="<%=bigpic[0].title%>"/></a>
-                <a href="#!/resource/<%=bigpic[0].id%>/" class="intro"><%=bigpic[0].title%></a>
-            </li>
-            <% } %>
-            <% if(smallpic){ %>
-            <% _.each(smallpic, function(res, i){ %>
-            <% if(i<2) { %>
-            <li class="sl">
-            <% } %>
-            <% if(i>=2 && i<4) { %>
-            <li class="sl small-hide">
-            <% } %>
-            <!--<% if(i>=4 && i<6) { %>
-            <li class="sl middle-hide">
-            <% } %>-->
-            <% if(i<4) { %>
-                <a href="#!/resource/<%=res.id%>/" class="thumb"><img src="<%=res.recommend_pic%>" alt="<%=res.title%>"/></a>
-                <a href="#!/resource/<%=res.id%>/" class="intro"><%=res.title%></a>
-            </li>
-            <% } %>
-
-            <% }) %>
-            <% } %>
-                </ul>
-            </div>
-            <% }) %>
+<div class="container">
+<!--ReCommend-->
+    <div id="recommend">
+    <!--recommend_navbar-->
+        <div id="re_navbar">
+            <ul class="list-unstyled">
+                <% _.each(tophits, function(item, i){ %>
+                <li class="re_nb" ctr_id="<%= i %>"> <%=item.title%></li>
+                <% }) %>
+            <ul>
         </div>
+    <!--recommend_navbar_ends-->
+    <!--recommend_shower-->
+        <div id="re_shower">
+            <ul  class="list-unstyled">
+                <% _.each(tophits, function(item, i){ %>
+                <li class="re_sh" ctr_id="<%= i %>"> 
+                    <%=item.title%>
+                </li>
+                <% }) %>
+            <ul>
+        </div>
+    <!--recommend_shower_ends-->
     </div>
-<!--NEW SLIDER ENDS-->
+<!--ReCommend Ends-->
 </div>
-
 
 
 <!--<% if(bigpic || smallpic){ %>

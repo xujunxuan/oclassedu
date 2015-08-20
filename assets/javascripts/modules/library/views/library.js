@@ -10,7 +10,8 @@ define([
         title: '首页'
         , template: _.template(template)
         , events: {
-            'click .more-btn a': 'toggleMore'
+            'click .more-btn a': 'toggleMore',
+            'click #re_navbar li':'tagme'
         }
         , initialize: function(){
         }
@@ -21,6 +22,9 @@ define([
                 //smoothHeight: true,
                 //manualControlEvent:"hover"
             });
+            
+            $('.re_sh').addClass('hide');
+            $('#re_shower li:first-child').removeClass('hide');
             return this;
         }
         , toggleMore: function(e){
@@ -33,6 +37,23 @@ define([
                 $more.hide();
                 $this.html('查看更多 <i class="icon icon-arrow-circle-down"></i>');
             }
+        }
+        ,tagme:function(e){
+            
+            var temp=$('.re_sh');
+            for (var i = 0; i <= temp.length; i++) {
+                /*if(temp[i].hasClass('hide'))
+                {
+                    temp[i].removeAttr('class','hide');
+                }*/
+                if(!($('.re_sh').eq(i).hasClass('hide')))
+                {
+                    $('.re_sh').eq(i).addClass('hide');
+                }
+            };
+            var $trg_obj=$(e.currentTarget);
+            var trg=$trg_obj.attr('ctr_id');
+            $('.re_sh').eq(trg).removeClass('hide');       
         }
     });
     return View;
