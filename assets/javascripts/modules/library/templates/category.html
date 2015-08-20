@@ -26,12 +26,12 @@
 <div id="category">
     <div class="container">
         <ul class="thumb-list">
-            <% _.each(category.list, function(res){%>
+            <% _.each(category.list, function(res,index){%>
             <li>
                 <a href="#!/resource/<%=res.id%>/" class="thumb"><img src="<%=res.pic%>" alt="<%=res.title%>"/></a>
-                <a href="#!/resource/<%=res.id%>/" class="intro"><%=res.title%></a>
+                <a href="#!/resource/<%=res.id%>/" class="intro_ch"><%=res.title%></a>
                 <a href="#!/resource/<%=res.id%>/" class="intro_en"><%=res.title%></a>
-                <a href="#!/resource/<%=res.id%>/" class="counter"><%=res.title%></a>
+                <a href="#!/resource/<%=res.id%>/" class="counter">人气:<%=index%></a>
             </li>
             <% }) %>
         </ul>

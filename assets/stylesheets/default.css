@@ -8865,6 +8865,7 @@ html[xmlns] .flexslider .slides {
   background-color: #0f5a82;
   padding: 1px 0;
   line-height: 38px;
+  max-height: 38px;
 }
 #main-nav .main-nav-list {
   margin: 0;
@@ -9577,6 +9578,11 @@ html[xmlns] .flexslider .slides {
 #classes .library-cate:nth-child(2n-1) {
   background-color: #fbfbfb;
 }
+#classes .library-cate .thumb-list .title
+{
+  
+}
+
 #classes .library-cate .thumb-list .title a h3 {
   padding-top: 30px;
 }

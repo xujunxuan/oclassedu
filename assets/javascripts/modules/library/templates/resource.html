@@ -1,53 +1,27 @@
 <div id="breadcrumb">
     <div class="container">
-        <ol class="breadcrumb">
-            <li><a href="#!/">首页</a></li>
-            <li><a href="#!/">课程</a></li>
-            <li class="active"><%=resource.title%></li>
-        </ol>
-    </div>
-</div>
-<div id="resource">
-    <div class="resource-cover">
-        <div class="container">
-            <div class="cover">
-                <div class="thumb">
-                    <img src="<%=resource.pic%>" alt="<%=resource.title%>"/>
+        <img src="../uploads/resource/bg.jpg">
+        <div class="breadholder">
+            <ol class="breadcrumb">
+                <li><a href="#!/"><i class="icon icon-home icon-lg"></i></a></li>
+                <li><a href="#!/">课程</a></li>
+                <li class="active"><%=resource.title%></li>
+            </ol>
+            <div class="res_holder">
+                <div class="res_img">
+                    <div class="thumb">
+                        <img src="<%=resource.pic%>" alt="<%=resource.title%>"/>
+                    </div>
                 </div>
-                <h1><%=resource.title%></h1>
-                <div class="intro">
-                    <p>课程介绍</p>
+                <div class="res_intro">
+                    <h2>课程介绍</h2>
                     <%=resource.intro%>
                 </div>
             </div>
         </div>
     </div>
-    <div class="resource-info">
-        <div class="container">
-            <div class="author">
-                <h3><%- resource.comments.author_title ? resource.comments.author_title : '讲师介绍'%></h3>
-                <div class="cnt">
-                <% _.each(resource.author_list,function(author, index){ %>
-                    <div class="item<%=index>0?' ismore': ''%>">
-                        <div class="pic"><img src="<%=author.pic%>" alt="<%=author.name%>"/></div>
-                        <div class="name">讲师：<strong><%=author.name%></strong></div>
-                        <div class="intro">简介：<%=author.intro%></div>
-                    </div>
-                <% }) %>
-                </div>
-            </div>
-            <div class="college">
-                <h3><%- resource.comments.college_title ? resource.comments.college_title : '学院介绍'%></h3>
-                <div class="cnt">
-                <% _.each(resource.college_list,function(college, index){ %>
-                    <div class="item<%=index>0?' ismore': ''%>">
-                        <%=college.intro%>
-                    </div>
-                <% }) %>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
+<div id="resource">
     <div class="resource-list">
         <div class="container">
             <% if(video_list){ %>

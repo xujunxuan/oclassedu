@@ -244,7 +244,7 @@ require([
 }
     //app.site.defaults=res.pkg;
     app.site = new Site(res.pkg);
-    console.log(app.site);
+    //console.log(app.site);
     //$('link#themes').attr('href','/assets/stylesheets/site_costiom_color_#0f5a82.css');
     var router = new Router();
 });
