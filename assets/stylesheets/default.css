@@ -4525,7 +4525,7 @@ fieldset[disabled] .btn-default.active {
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
   color: #ffffff;
-  background-color: #1a452e;
+  background-color: #3c3c3c;
   border-color: #102b1c;
 }
 .btn-primary:active,
@@ -9580,7 +9580,7 @@ html[xmlns] .flexslider .slides {
 }
 #classes .library-cate .thumb-list .title
 {
-  
+
 }
 
 #classes .library-cate .thumb-list .title a h3 {
