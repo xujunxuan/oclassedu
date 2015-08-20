@@ -358,8 +358,8 @@ display: block;
   position: relative;
   text-decoration: none;
   color: #fff;
-  width: 243px;
-  height: 158px;
+  width: 255px;
+  height: 190px;
   background-color: #0f5a82;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: '' 0 0 5px rgba(0, 0, 0, 0.2) 1px 2px rgba(0, 0, 0, 0.2);
@@ -369,7 +369,7 @@ display: block;
 }
 .thumb-list .title a h3 {
   margin: 0;
-  padding: 55px 0 0;
+  padding: 70px 0 0;
   color: #fff;
   text-align: center;
   font-size: 30px;
@@ -420,6 +420,7 @@ display: block;
 }
 
 /*THUMBLIST-ENDS*/
+/*resource-page*/
 .res_holder
 {
    padding-top: 50px;
@@ -459,4 +460,4 @@ display: block;
 
 
 }
-
+/*resource-page_ends*/
