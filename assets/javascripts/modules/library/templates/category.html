@@ -1,20 +1,37 @@
 <div id="breadcrumb">
     <div class="container">
-        <ol class="breadcrumb">
-            <li><a href="#!/">首页</a></li>
-            <li><a href="#!/">分类</a></li>
-            <li class="active"><%=category.category.prarent.name%></li>
-        </ol>
+        <img src="../uploads/category/<%=category.category.prarent.name%>.jpg" alt="<%=category.category.prarent.name%>">
+        <div class="breadholder">   
+            <ol class="breadcrumb">
+                <li><a href="#!/"><i class="icon icon-home icon-lg"></i></a></li>
+                <li><a href="#!/">分类</a></li>
+                <li class="active"><%=category.category.prarent.name%></li>
+            </ol>
+            <div class="container">
+                <h2 class="des_tt"><%=category.category.prarent.name%></h2>
+                <div class="des_ch">
+                    <p>
+                        先随便打一点中文描述先随便打一点中文描述先随便打一点中文描述先随便打一点中文描述先随便打一点中文描述先随便打一点中文描述先随便打一点中文描述先随便打一点中文描述先随便打一点中文描述先随便打一点中文描述先随便打一点中文描述先随便打一点中文描述先随便打一点中文描述先随便打一点中文描述先随便打一点中文描述先随便打一点中文描述
+                    </p>
+                </div>
+                <div class="des_en">
+                    <p>
+                        Input some Eng description happily.Input some Eng description happily.Input some Eng description happily.Input some Eng description happily.Input some Eng description happily.Input some Eng description happily.Input some Eng description happily.Input some Eng description happily.Input some Eng description happily.Input some Eng description happily.Input some Eng description happily.
+                    </p>
+                </div>
+            </div>
+        <div>
     </div>
 </div>
 <div id="category">
     <div class="container">
-        <h1><%=category.category.prarent.name%></h1>
         <ul class="thumb-list">
             <% _.each(category.list, function(res){%>
             <li>
                 <a href="#!/resource/<%=res.id%>/" class="thumb"><img src="<%=res.pic%>" alt="<%=res.title%>"/></a>
                 <a href="#!/resource/<%=res.id%>/" class="intro"><%=res.title%></a>
+                <a href="#!/resource/<%=res.id%>/" class="intro_en"><%=res.title%></a>
+                <a href="#!/resource/<%=res.id%>/" class="counter"><%=res.title%></a>
             </li>
             <% }) %>
         </ul>
